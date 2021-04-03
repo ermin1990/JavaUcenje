@@ -1,0 +1,47 @@
+package projekat1;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+       /* 1. Napraviti listu od n brojeva (Za listu brojeva koristiti native niz, ili ArrayList).
+        Zatim ispisati u obliku:
+
+        Najveci element niza je: 14
+        Zbir elemenata je: 25
+        Prosjecna vrijenost niza je: 5.0*/
+
+        int suma = 0;
+        double najveciElement = Double.MIN_VALUE;
+
+        Scanner s = new Scanner(System.in);
+        System.out.print("Unesite družinu niza: ");
+        int n = s.nextInt();
+
+        int[] niz = new int[n];
+
+        for (int i=0; i< niz.length; i++){
+            System.out.print("Unesite broj u niz: ");
+            niz[i] = s.nextInt();
+
+            suma = suma+niz[i];
+
+            if (niz[i] > najveciElement){
+                najveciElement = niz[i];
+            }
+
+        }
+
+        double prosjecnaVrijednost = suma / niz.length;
+
+        System.out.println("Najveci element niza je "+ najveciElement);
+        System.out.println("Zbir elemenata je: "+suma);
+        System.out.println("Prosjecna vrijednost niza je: " +prosjecnaVrijednost);
+
+
+    }
+
+
+}
