@@ -32,23 +32,35 @@ public class Main {
         ArrayList<Integer> negNums = new ArrayList<>();
         ArrayList<Integer> evenNums = new ArrayList<>();
         ArrayList<Integer> oddNums = new ArrayList<>();
-        //Ovo sam morao ovako uključiti jer mi new int[] ne dozvoljava da kreiram prazan Array.
+        ArrayList<Integer> prostBroj = new ArrayList<>();
 
 
         for (int i=0; i< array.length; i++){
             array[i] = s.nextInt();}
 
-            for ( int i=0; i< array.length; i++) {
-                if (array[i] > 0) posNums.add(array[i]);
-                if (array[i] < 0) negNums.add(array[i]);
-                if (array[i] % 2 == 0 && array[i] > 0) evenNums.add(array[i]);
-                if (array[i] % 2 != 0 && array[i] > 0) oddNums.add(array[i]);
+        for (int j : array) {
+            if (j > 0) posNums.add(j);
+            if (j < 0) negNums.add(j);
+            if (j % 2 == 0 && j > 0) evenNums.add(j);
+            if (j % 2 != 0 && j > 0) oddNums.add(j);
+            if (daLiJeProstBroj(j)) {
+                prostBroj.add(j);
             }
+        }
+
         System.out.println("Positive numbers: "+posNums.toString());
         System.out.println("Negative numbers: "+negNums.toString());
         System.out.println("Even numbers: "+evenNums.toString());
         System.out.println("Odd numbers: "+oddNums.toString());
-}}
+        System.out.println("Prosti brojevi: "+prostBroj.toString());
+}
+
+    private static boolean daLiJeProstBroj(int $i) {
+        if ($i == 2) return true;
+        if ($i % 2 != 0 && $i>1) return true;
+        return false;
+}
+}
 
 
 
