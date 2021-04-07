@@ -1,0 +1,40 @@
+package com.company;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner s = new Scanner(System.in);
+
+        ArrayList<Integer> listaBrojeva = new ArrayList<>();
+
+
+       while (s.hasNext()){
+           listaBrojeva.add(s.nextInt());
+           if (listaBrojeva.size()==5){
+               break;
+           }
+       }
+
+       ArrayList<Integer> sortiranaLista = new ArrayList<>();
+       sortiranaLista.add(listaBrojeva.get(0));
+
+
+       for (int i=1; i< listaBrojeva.size(); i++){
+           int duzinaListe = sortiranaLista.size();
+           for (int j=0; j< sortiranaLista.size();j++){
+               if (listaBrojeva.get(i) > sortiranaLista.get(j)){
+                   sortiranaLista.add(j, listaBrojeva.get(i));
+                   break;
+               }
+           }
+           if (sortiranaLista.size() == duzinaListe){
+               sortiranaLista.add(listaBrojeva.get(i));
+           }
+       }
+        System.out.println(sortiranaLista.toString());
+    }
+}
